@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="CAREBRIDGE connects appointments, health records, care plans, and patient support."
+    />
+    <meta name="theme-color" content="#f4f7fb" />
+    <title>CAREBRIDGE — Connected healthcare</title>
+    <script>
+      (() => {
+        const isLocalFile = window.location.protocol === 'file:';
+        const previewStyle = document.createElement('link');
+        previewStyle.rel = 'stylesheet';
+        previewStyle.href = isLocalFile ? './frontend/public/preview.css' : '/preview.css';
+        document.head.append(previewStyle);
+
+        const previewScript = document.createElement('script');
+        previewScript.src = isLocalFile ? './frontend/public/preview.js' : '/preview.js';
+        document.head.append(previewScript);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      if (window.location.protocol !== 'file:') {
+        await import('/frontend/src/main.tsx');
+      }
+    </script>
+  </body>
+</html>
