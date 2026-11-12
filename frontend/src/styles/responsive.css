@@ -342,6 +342,485 @@ button:disabled {
   text-align: center;
 }
 
+/* Interactive Header Avatar & Profile Menu */
+.header-avatar-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.header-avatar-btn {
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  font: inherit;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.header-avatar-btn:hover {
+  transform: scale(1.06);
+  box-shadow: 0 4px 14px rgba(8, 120, 201, 0.25);
+  border-color: #0878c9;
+}
+
+.header-avatar-btn:focus-visible {
+  outline: 3px solid #55a9e3;
+  outline-offset: 2px;
+}
+
+.avatar-status-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 10px;
+  height: 10px;
+  background-color: #35bd83;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  width: 285px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(16, 47, 72, 0.16), 0 2px 8px rgba(16, 47, 72, 0.08);
+  border: 1px solid #e3edf5;
+  padding: 10px;
+  z-index: 100;
+  animation: dropdownFadeIn 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: left;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.profile-dropdown-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 6px 12px;
+}
+
+.profile-dropdown-header .avatar.large-sm {
+  width: 48px;
+  height: 48px;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.profile-dropdown-user {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.profile-dropdown-user strong {
+  font-size: 15px;
+  color: #102f48;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.profile-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: #e1f0fc;
+  color: #0878c9;
+  margin-top: 1px;
+}
+
+.profile-id,
+.profile-blood {
+  font-size: 11px;
+  color: #71869a;
+}
+
+.profile-dropdown-divider {
+  height: 1px;
+  background: #edf2f7;
+  margin: 6px 0;
+}
+
+.profile-dropdown-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.profile-section-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: #8c9fae;
+  padding: 6px 8px 2px;
+}
+
+.profile-dropdown-section button,
+.profile-logout-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: #2c445a;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 140ms ease, color 140ms ease;
+}
+
+.profile-dropdown-section button:hover {
+  background-color: #f2f7fb;
+  color: #0878c9;
+}
+
+.profile-dropdown-section button svg,
+.profile-logout-btn svg {
+  color: #0878c9;
+  flex-shrink: 0;
+}
+
+.profile-logout-btn {
+  color: #c93b48;
+  margin-top: 2px;
+}
+
+.profile-logout-btn:hover {
+  background-color: #fff1f2;
+  color: #a82330;
+}
+
+.profile-logout-btn svg {
+  color: #c93b48;
+}
+
+.sidebar-user {
+  cursor: pointer;
+  border-radius: 12px;
+  padding: 6px 8px;
+  transition: background-color 160ms ease;
+}
+
+.sidebar-user:hover {
+  background-color: #f0f6fa;
+}
+
+.header-actions .language {
+  cursor: pointer;
+  user-select: none;
+}
+
+@media (max-width: 600px) {
+  .profile-dropdown {
+    width: min(285px, calc(100vw - 32px));
+    right: -6px;
+  }
+}
+
+/* Role Selector Tabs on Login */
+.login-role-selector {
+  display: flex;
+  background: #eef4f9;
+  border-radius: 12px;
+  padding: 4px;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.login-role-selector .role-tab {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  color: #557087;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 9px;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease;
+}
+
+.login-role-selector .role-tab.active {
+  background: #ffffff;
+  color: #0878c9;
+  box-shadow: 0 4px 12px rgba(8, 120, 201, 0.15);
+}
+
+.login-role-selector .role-tab svg {
+  color: currentColor;
+}
+
+.role-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: #e1f0fc;
+  color: #0878c9;
+  margin-bottom: 12px;
+}
+
+.role-badge-pill.doctor {
+  background: #e6f7ef;
+  color: #1f9463;
+}
+
+/* Doctor & Clinical Portal Styles */
+.doctor-hero-banner {
+  background: linear-gradient(110deg, #0b68ad, #1685d3);
+  color: #ffffff;
+  border-radius: 16px;
+  padding: 22px 26px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+  box-shadow: 0 10px 28px rgba(8, 120, 201, 0.2);
+}
+
+.doctor-hero-content {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.doctor-hero-content > svg {
+  width: 44px;
+  height: 44px;
+  color: #bfe3fc;
+  flex-shrink: 0;
+}
+
+.doctor-hero-content span {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #cfe8fc;
+  font-weight: 700;
+}
+
+.doctor-hero-content h3 {
+  margin: 3px 0;
+  font-size: 19px;
+}
+
+.doctor-hero-content p {
+  margin: 0;
+  font-size: 13px;
+  color: #e5f3fd;
+}
+
+.doctor-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #eef2f6;
+  background: #ffffff;
+}
+
+.clinical-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 13px;
+}
+
+.clinical-table th {
+  background: #f7fafc;
+  padding: 12px 14px;
+  color: #647a8f;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.clinical-table td {
+  padding: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  color: #243c53;
+  vertical-align: middle;
+}
+
+.clinical-table tr:last-child td {
+  border-bottom: none;
+}
+
+.clinical-table tr:hover td {
+  background: #fbfdff;
+}
+
+.token-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #e8f4fd;
+  color: #0878c9;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.clinical-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.clinical-badge.green {
+  background: #e8f8f0;
+  color: #1f9463;
+}
+
+.clinical-badge.orange {
+  background: #fff4e5;
+  color: #d97706;
+}
+
+.clinical-badge.blue {
+  background: #e8f4fd;
+  color: #0878c9;
+}
+
+.clinical-badge.red {
+  background: #feebee;
+  color: #d32f2f;
+}
+
+/* SOAP Notes Form */
+.soap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.soap-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.soap-field label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #3b5266;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.soap-field textarea {
+  font: inherit;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d8e2ec;
+  resize: vertical;
+  min-height: 80px;
+  color: #1b354d;
+}
+
+.soap-field textarea:focus {
+  outline: 2px solid #55a9e3;
+  border-color: #0878c9;
+}
+
+/* E-Prescription Form */
+.rx-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 13px;
+}
+
+.rx-table th {
+  background: #f4f8fb;
+  padding: 10px 12px;
+  font-weight: 700;
+  color: #557087;
+  text-align: left;
+}
+
+.rx-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.rx-table input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d8e2ec;
+  font-size: 13px;
+}
+
+/* Emergency QR Lookup Box */
+.triage-search {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.triage-search input {
+  flex: 1;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #d2dfea;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .doctor-hero-banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .soap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 900px) {
   .public-nav,
   .hero-section {
